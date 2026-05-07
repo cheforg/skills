@@ -1,14 +1,9 @@
-Skills are organized into bucket folders under `skills/`:
+Skills live directly under `skills/<skill-name>/`. There are no category sub-folders — every skill is a sibling.
 
-- `engineering/` — daily code work
-- `productivity/` — daily non-code workflow tools
-- `misc/` — kept around but rarely used
-- `personal/` — tied to my own setup, not promoted
-- `in-progress/` — drafts not yet ready to ship
-- `deprecated/` — no longer used
+Each skill directory contains a `SKILL.md` and any supporting files (rules, references, scripts) it needs.
 
-Every skill in `engineering/`, `productivity/`, or `misc/` must have a reference in the top-level `README.md` and an entry in `.claude-plugin/plugin.json`. Skills in `personal/`, `in-progress/`, and `deprecated/` must not appear in either.
+Active skills must:
+- Have a reference (with link to `SKILL.md`) in the top-level `README.md`.
+- Have an entry in `.claude-plugin/plugin.json`.
 
-Each skill entry in the top-level `README.md` must link the skill name to its `SKILL.md`.
-
-Each bucket folder has a `README.md` that lists every skill in the bucket with a one-line description, with the skill name linked to its `SKILL.md`.
+Skills that are deprecated, in-progress, or personal-only must NOT appear in `.claude-plugin/plugin.json`. They may still appear in the `README.md` under a clearly-labelled section so readers know they exist but should not rely on them.
