@@ -10,13 +10,16 @@
 
 # Skills For Real Engineers
 
-My agent skills that I use every day to do real engineering - not vibe coding.
+Agent skills for doing real engineering — not vibe coding.
 
-Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
+This repo combines two collections:
 
-These skills are designed to be small, easy to adapt, and composable. They work with any model. They're based on decades of engineering experience. Hack around with them. Make them your own. Enjoy.
+- **Matt Pocock's skills** — small, composable engineering and productivity skills designed to fix common failure modes with Claude Code, Codex, and other coding agents.
+- **Vercel's agent-skills** — React/Next.js performance, web design, React Native, view transitions, composition patterns, and Vercel deployment.
 
-If you want to keep up with changes to these skills, and any new ones I create, you can join ~60,000 other devs on my newsletter:
+Every skill lives directly under `skills/<skill-name>/`. There are no category folders — just sibling skills.
+
+If you want to keep up with changes, join ~60,000 other devs on the newsletter:
 
 [Sign Up To The Newsletter](https://www.aihero.dev/s/skills-newsletter)
 
@@ -39,7 +42,7 @@ npx skills@latest add mattpocock/skills
 
 ## Why These Skills Exist
 
-I built these skills as a way to fix common failure modes I see with Claude Code, Codex, and other coding agents.
+These skills fix common failure modes seen with Claude Code, Codex, and other coding agents.
 
 ### #1: The Agent Didn't Do What I Want
 
@@ -53,10 +56,10 @@ This is just the same in the AI age. There is a communication gap between you an
 
 **The Fix** is to use:
 
-- [`/grill-me`](./skills/productivity/grill-me/SKILL.md) - for non-code uses
-- [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md) - same as [`/grill-me`](./skills/productivity/grill-me/SKILL.md), but adds more goodies (see below)
+- [`/grill-me`](./skills/grill-me/SKILL.md) - for non-code uses
+- [`/grill-with-docs`](./skills/grill-with-docs/SKILL.md) - same as [`/grill-me`](./skills/grill-me/SKILL.md), but adds more goodies (see below)
 
-These are my most popular skills. They help you align with the agent before you get started, and think deeply about the change you're making. Use them _every_ time you want to make a change.
+These are the most popular skills in this repo. They help you align with the agent before you get started, and think deeply about the change you're making. Use them _every_ time you want to make a change.
 
 ### #2: The Agent Is Way Too Verbose
 
@@ -66,7 +69,7 @@ These are my most popular skills. They help you align with the agent before you 
 
 **The Problem**: At the start of a project, devs and the people they're building the software for (the domain experts) are usually speaking different languages.
 
-I felt the same tension with my agents. Agents are usually dropped into a project and asked to figure out the jargon as they go. So they use 20 words where 1 will do.
+The same tension exists with agents. Agents are usually dropped into a project and asked to figure out the jargon as they go. So they use 20 words where 1 will do.
 
 **The Fix** for this is a shared language. It's a document that helps agents decode the jargon used in the project.
 
@@ -75,7 +78,7 @@ I felt the same tension with my agents. Agents are usually dropped into a projec
 Example
 </summary>
 
-Here's an example [`CONTEXT.md`](https://github.com/mattpocock/course-video-manager/blob/076a5a7a182db0fe1e62971dd7a68bcadf010f1c/CONTEXT.md), from my `course-video-manager` repo. Which one is easier to read?
+Here's an example [`CONTEXT.md`](https://github.com/mattpocock/course-video-manager/blob/076a5a7a182db0fe1e62971dd7a68bcadf010f1c/CONTEXT.md), from the `course-video-manager` repo. Which one is easier to read?
 
 - **BEFORE**: "There's a problem when a lesson inside a section of a course is made 'real' (i.e. given a spot in the file system)"
 - **AFTER**: "There's a problem with the materialization cascade"
@@ -84,9 +87,7 @@ This concision pays off session after session.
 
 </details>
 
-This is built into [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md). It's a grilling session, but that helps you build a shared language with the AI, and document hard-to-explain decisions in ADR's.
-
-It's hard to explain how powerful this is. It might be the single coolest technique in this repo. Try it, and see.
+This is built into [`/grill-with-docs`](./skills/grill-with-docs/SKILL.md). It's a grilling session, but that helps you build a shared language with the AI, and document hard-to-explain decisions in ADR's.
 
 > [!TIP]
 > A shared language has many other benefits than reducing verbosity:
@@ -97,7 +98,7 @@ It's hard to explain how powerful this is. It might be the single coolest techni
 
 ### #3: The Code Doesn't Work
 
-> "Always take small, deliberate steps. The rate of feedback is your speed limit. Never take on a task that’s too big."
+> "Always take small, deliberate steps. The rate of feedback is your speed limit. Never take on a task that's too big."
 >
 > David Thomas & Andrew Hunt, [The Pragmatic Programmer](https://www.amazon.co.uk/Pragmatic-Programmer-Anniversary-Journey-Mastery/dp/B0833F1T3V)
 
@@ -109,9 +110,9 @@ It's time to look at your feedback loops. Without feedback on how the code it pr
 
 For automated tests, a red-green-refactor loop is critical. This is where the agent writes a failing test first, then fixes the test. This helps give the agent a consistent level of feedback that results in far better code.
 
-I've built a **[`/tdd`](./skills/engineering/tdd/SKILL.md) skill** you can slot into any project. It encourages red-green-refactor and gives the agent plenty of guidance on what makes good and bad tests.
+The **[`/tdd`](./skills/tdd/SKILL.md)** skill slots into any project. It encourages red-green-refactor and gives the agent plenty of guidance on what makes good and bad tests.
 
-For debugging, I've also built a **[`/diagnose`](./skills/engineering/diagnose/SKILL.md)** skill that wraps best debugging practices into a simple loop.
+For debugging, **[`/diagnose`](./skills/diagnose/SKILL.md)** wraps best debugging practices into a simple loop.
 
 ### #4: We Built A Ball Of Mud
 
@@ -129,45 +130,69 @@ For debugging, I've also built a **[`/diagnose`](./skills/engineering/diagnose/S
 
 This is built in to every layer of these skills:
 
-- [`/to-prd`](./skills/engineering/to-prd/SKILL.md) quizzes you about which modules you're touching before creating a PRD
-- [`/zoom-out`](./skills/engineering/zoom-out/SKILL.md) tells the agent to explain code in the context of the whole system
+- [`/to-prd`](./skills/to-prd/SKILL.md) quizzes you about which modules you're touching before creating a PRD
+- [`/zoom-out`](./skills/zoom-out/SKILL.md) tells the agent to explain code in the context of the whole system
 
-And crucially, [`/improve-codebase-architecture`](./skills/engineering/improve-codebase-architecture/SKILL.md) helps you rescue a codebase that has become a ball of mud. I recommend running it on your codebase once every few days.
+And crucially, [`/improve-codebase-architecture`](./skills/improve-codebase-architecture/SKILL.md) helps you rescue a codebase that has become a ball of mud. Run it on your codebase once every few days.
 
 ### Summary
 
-Software engineering fundamentals matter more than ever. These skills are my best effort at condensing these fundamentals into repeatable practices, to help you ship the best apps of your career. Enjoy.
+Software engineering fundamentals matter more than ever. These skills are a best effort at condensing those fundamentals into repeatable practices, to help you ship the best apps of your career. Enjoy.
 
 ## Reference
 
-### Engineering
+All active skills, alphabetical:
 
-Skills I use daily for code work.
+- **[caveman](./skills/caveman/SKILL.md)** — Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler while keeping full technical accuracy.
+- **[composition-patterns](./skills/composition-patterns/SKILL.md)** — React composition patterns that scale. Avoid boolean prop proliferation through compound components, lifting state, and composing internals.
+- **[deploy-to-vercel](./skills/deploy-to-vercel/SKILL.md)** — Deploy applications and websites to Vercel. Returns preview URL and a claim URL for transferring ownership.
+- **[diagnose](./skills/diagnose/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
+- **[git-guardrails-claude-code](./skills/git-guardrails-claude-code/SKILL.md)** — Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, etc.) before they execute.
+- **[grill-me](./skills/grill-me/SKILL.md)** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved.
+- **[grill-with-docs](./skills/grill-with-docs/SKILL.md)** — Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates `CONTEXT.md` and ADRs inline.
+- **[improve-codebase-architecture](./skills/improve-codebase-architecture/SKILL.md)** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`.
+- **[migrate-to-shoehorn](./skills/migrate-to-shoehorn/SKILL.md)** — Migrate test files from `as` type assertions to `@total-typescript/shoehorn`.
+- **[prototype](./skills/prototype/SKILL.md)** — Build a throwaway prototype to flush out a design — either a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route.
+- **[react-best-practices](./skills/react-best-practices/SKILL.md)** — React and Next.js performance optimization guidelines from Vercel Engineering.
+- **[react-native-skills](./skills/react-native-skills/SKILL.md)** — React Native and Expo best practices: list performance, animations, UI patterns, native module integration.
+- **[react-view-transitions](./skills/react-view-transitions/SKILL.md)** — Implement smooth, native-feeling animations using React's View Transition API. Covers `<ViewTransition>`, `addTransitionType`, transition types, and Next.js integration.
+- **[scaffold-exercises](./skills/scaffold-exercises/SKILL.md)** — Create exercise directory structures with sections, problems, solutions, and explainers.
+- **[setup-matt-pocock-skills](./skills/setup-matt-pocock-skills/SKILL.md)** — Scaffold the per-repo config (issue tracker, triage label vocabulary, domain doc layout) that the engineering skills consume. Run once per repo before using `to-issues`, `to-prd`, `triage`, `diagnose`, `tdd`, `improve-codebase-architecture`, or `zoom-out`.
+- **[setup-pre-commit](./skills/setup-pre-commit/SKILL.md)** — Set up Husky pre-commit hooks with lint-staged, Prettier, type checking, and tests.
+- **[tdd](./skills/tdd/SKILL.md)** — Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
+- **[to-issues](./skills/to-issues/SKILL.md)** — Break any plan, spec, or PRD into independently-grabbable issues using vertical slices.
+- **[to-prd](./skills/to-prd/SKILL.md)** — Turn the current conversation context into a PRD and publish it to the project issue tracker.
+- **[triage](./skills/triage/SKILL.md)** — Triage issues through a state machine of triage roles.
+- **[vercel-cli-with-tokens](./skills/vercel-cli-with-tokens/SKILL.md)** — Deploy and manage Vercel projects using token-based authentication rather than interactive login.
+- **[web-design-guidelines](./skills/web-design-guidelines/SKILL.md)** — Review UI code for Web Interface Guidelines compliance: accessibility, performance, focus, forms, animation, typography, and more.
+- **[write-a-skill](./skills/write-a-skill/SKILL.md)** — Create new skills with proper structure, progressive disclosure, and bundled resources.
+- **[zoom-out](./skills/zoom-out/SKILL.md)** — Tell the agent to zoom out and give broader context or a higher-level perspective on an unfamiliar section of code.
 
-- **[diagnose](./skills/engineering/diagnose/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
-- **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)** — Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates `CONTEXT.md` and ADRs inline.
-- **[triage](./skills/engineering/triage/SKILL.md)** — Triage issues through a state machine of triage roles.
-- **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`.
-- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)** — Scaffold the per-repo config (issue tracker, triage label vocabulary, domain doc layout) that the other engineering skills consume. Run once per repo before using `to-issues`, `to-prd`, `triage`, `diagnose`, `tdd`, `improve-codebase-architecture`, or `zoom-out`.
-- **[tdd](./skills/engineering/tdd/SKILL.md)** — Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
-- **[to-issues](./skills/engineering/to-issues/SKILL.md)** — Break any plan, spec, or PRD into independently-grabbable GitHub issues using vertical slices.
-- **[to-prd](./skills/engineering/to-prd/SKILL.md)** — Turn the current conversation context into a PRD and submit it as a GitHub issue. No interview — just synthesizes what you've already discussed.
-- **[zoom-out](./skills/engineering/zoom-out/SKILL.md)** — Tell the agent to zoom out and give broader context or a higher-level perspective on an unfamiliar section of code.
-- **[prototype](./skills/engineering/prototype/SKILL.md)** — Build a throwaway prototype to flush out a design — either a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route.
+### In progress
 
-### Productivity
+Drafts not yet ready to ship — interfaces may change.
 
-General workflow tools, not code-specific.
+- **[handoff](./skills/handoff/SKILL.md)** — Compact the current conversation into a handoff document for another agent to pick up.
+- **[writing-beats](./skills/writing-beats/SKILL.md)** — Shape an article as a journey of beats, choose-your-own-adventure style.
+- **[writing-fragments](./skills/writing-fragments/SKILL.md)** — Mine the user for fragments and append them to a single document as raw material for a future article.
+- **[writing-shape](./skills/writing-shape/SKILL.md)** — Take a markdown file of raw material and shape it into an article through a conversational session.
 
-- **[caveman](./skills/productivity/caveman/SKILL.md)** — Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler while keeping full technical accuracy.
-- **[grill-me](./skills/productivity/grill-me/SKILL.md)** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved.
-- **[write-a-skill](./skills/productivity/write-a-skill/SKILL.md)** — Create new skills with proper structure, progressive disclosure, and bundled resources.
+### Personal
 
-### Misc
+Tied to a specific personal setup — not promoted for general use.
 
-Tools I keep around but rarely use.
+- **[edit-article](./skills/edit-article/SKILL.md)** — Edit and improve articles by restructuring sections and tightening prose.
+- **[obsidian-vault](./skills/obsidian-vault/SKILL.md)** — Search, create, and manage notes in an Obsidian vault.
 
-- **[git-guardrails-claude-code](./skills/misc/git-guardrails-claude-code/SKILL.md)** — Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, etc.) before they execute.
-- **[migrate-to-shoehorn](./skills/misc/migrate-to-shoehorn/SKILL.md)** — Migrate test files from `as` type assertions to @total-typescript/shoehorn.
-- **[scaffold-exercises](./skills/misc/scaffold-exercises/SKILL.md)** — Create exercise directory structures with sections, problems, solutions, and explainers.
-- **[setup-pre-commit](./skills/misc/setup-pre-commit/SKILL.md)** — Set up Husky pre-commit hooks with lint-staged, Prettier, type checking, and tests.
+### Deprecated
+
+No longer maintained — kept for reference. Don't rely on these.
+
+- **[design-an-interface](./skills/design-an-interface/SKILL.md)** — Generate multiple radically different interface designs for a module using parallel sub-agents.
+- **[qa](./skills/qa/SKILL.md)** — Interactive QA session where the user reports bugs conversationally and the agent files issues.
+- **[request-refactor-plan](./skills/request-refactor-plan/SKILL.md)** — Create a detailed refactor plan with tiny commits via user interview, then file it as a GitHub issue.
+- **[ubiquitous-language](./skills/ubiquitous-language/SKILL.md)** — Extract a DDD-style ubiquitous language glossary from the current conversation.
+
+## License
+
+MIT
